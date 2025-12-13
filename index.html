@@ -1,126 +1,121 @@
-
+@{
+    Layout = null;
+}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!-- UTF-8 for emojis -->
     <meta charset="utf-8" />
+    <title>Raju Laundry & Dry Cleaners</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Laundry Service</title>
-    <meta name="viewport" content="width=device-width" />
-	<link href="css/style.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+
 </head>
 <body>
 
-    <!-- Banner -->
-    <section class="banner">
-        <h1 class="shop-name">Raju Laundry & Dry Cleaners</h1>
-        <h2 class="offer-text">Free Pickup & Delivery 🚚</h2>
+    <!-- FULL WIDTH HEADER -->
+    <header class="banner">
+        <h1>Raju Laundry & Dry Cleaners</h1>
+        <h2>Free Pickup & Delivery 🚚</h2>
         <p>Professional Laundry Service at Your Doorstep</p>
-    </section>
+    </header>
 
-
-    <!-- Booking Form -->
+    <!-- BOOKING CARD -->
     <section class="booking-card">
         <h2>Book Your Pickup</h2>
 
         <form onsubmit="sendToWhatsApp(); return false;">
 
-            <!-- NAME -->
-            <input type="text"
-                   id="name"
+            <input type="text" id="name"
                    placeholder="Your Name"
                    maxlength="20"
                    required
-                   oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')" />
+                   oninput="this.value=this.value.replace(/[^a-zA-Z ]/g,'')" />
 
-            <!-- MOBILE -->
-            <input type="tel"
-                   id="mobile"
+            <input type="tel" id="mobile"
                    placeholder="Mobile Number"
                    maxlength="10"
                    required
                    inputmode="numeric"
-                   pattern="[0-9]*"
-                   oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+                   oninput="this.value=this.value.replace(/[^0-9]/g,'')" />
 
-            <!-- ADDRESS -->
             <textarea id="address"
                       placeholder="Pickup Address"
                       required></textarea>
 
-            <!-- CLOTHES -->
-            <input type="number"
-                   id="clothes"
+            <input type="number" id="clothes"
                    placeholder="Number of Clothes"
                    min="1"
                    max="999"
-                   required
-                   inputmode="numeric"
-                   oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+                   required />
 
             <button type="submit">Book Pickup</button>
         </form>
     </section>
 
-    <!-- FOOTER SECTION (light yellow area) -->
-    <section class="footer-section">
-        <div class="footer-content">
-            <h3>📍 Our Laundry Shop</h3>
+    <!-- SERVICES -->
+    <section class="services">
+        <h2>Our Services</h2>
 
-            <p>
-                D-45, Plot No. 114, Maheshwari CHS,<br />
-                Charkop Sector 1,<br />
-                Near Asha Hotel,<br />
-                Charkop, Kandivali West,<br />
-                Mumbai, Maharashtra – 400067
-            </p>
-
-            <p class="footer-phone">
-                📞 <a href="tel:7718924227">7718924227</a>
-            </p>
+        <div class="service-grid">
+            <div class="service-card">🧺<h3>Wash & Fold</h3><p>Daily wear cleaned & folded</p></div>
+            <div class="service-card">👔<h3>Dry Cleaning</h3><p>Premium fabric care</p></div>
+            <div class="service-card">🧼<h3>Ironing</h3><p>Steam press finish</p></div>
         </div>
     </section>
 
+    <!-- PRICE LIST -->
+    <section class="pricing">
+        <h2>Price List</h2>
+
+        <table>
+            <tr><th>Item</th><th>Price (₹)</th></tr>
+            <tr><td>Shirt / T-Shirt</td><td>10</td></tr>
+            <tr><td>Pant / Jeans</td><td>15</td></tr>
+            <tr><td>Bedsheet</td><td>40</td></tr>
+            <tr><td>Blanket</td><td>80</td></tr>
+        </table>
+    </section>
+
+    <!-- MAP -->
+    <section class="map-section">
+        <h2>Find Us</h2>
+
+        <iframe src="https://www.google.com/maps?q=19.2179,72.8287&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>
+            <strong>Raju Laundry</strong><br>
+            D-45 Plot No 114 Maheshwari CHS,<br>
+            Charkop Sector 1, Near Asha Hotel,<br>
+            Kandivali West, Mumbai – 400067<br>
+            📞 7718924227
+        </p>
+    </footer>
+
+    <!-- WHATSAPP SCRIPT -->
     <script>
         function sendToWhatsApp() {
+            var msg =
+                "*New Laundry Booking*\n\n" +
+                "*👤 Name:* " + name.value + "\n" +
+                "*📞 Mobile:* " + mobile.value + "\n" +
+                "*📍 Address:* " + address.value + "\n" +
+                "*👕 Clothes:* " + clothes.value;
 
-            var name = document.getElementById("name").value.trim();
-            var mobile = document.getElementById("mobile").value.trim();
-            var address = document.getElementById("address").value.trim();
-            var clothes = document.getElementById("clothes").value.trim();
-
-            if (name.length < 2) {
-                alert("Please enter a valid name.");
-                return;
-            }
-
-            if (mobile.length !== 10) {
-                alert("Please enter a valid 10-digit mobile number.");
-                return;
-            }
-
-            // ALL labels bold
-            var message =
-                "*New Laundry Booking*\n" +
-                "🧺\n" +
-                "👤 *Name:* " + name + "\n" +
-                "📞 *Mobile:* " + mobile + "\n" +
-                "📍 *Address:* " + address + "\n" +
-                "👕 *Clothes:* " + clothes;
-
-            var encodedMessage = encodeURIComponent(message);
-
-            var whatsappNumber = "918828099766";
-
-            var whatsappUrl =
-                "https://wa.me/" + whatsappNumber + "?text=" + encodedMessage;
-
-            window.open(whatsappUrl, "_blank");
+            window.open(
+                "https://wa.me/918108344894?text=" + encodeURIComponent(msg),
+                "_blank"
+            );
         }
     </script>
 
-
 </body>
 </html>
-
