@@ -1,54 +1,54 @@
-body {
+/* ===============================
+   GLOBAL RESET (CRITICAL FIX)
+   =============================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
     margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* FINAL SAFETY NET */
     font-family: Arial, sans-serif;
     background: linear-gradient(to bottom, #fff7d6, #ffe28a);
 }
 
-/* Banner */
-/* Banner */
+/* ===============================
+   HEADER / BANNER
+   =============================== */
 .banner {
     background: #ffb703;
     text-align: center;
     padding: 45px 20px;
     color: #3a2a00;
+    width: 100%;
 }
 
-/* Shop Name */
-.shop-name {
-    margin: 0;
-    font-size: 38px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
+    .banner h1 {
+        font-size: 34px;
+        margin: 0;
+    }
 
-/* Offer Text */
-.offer-text {
-    margin: 8px 0 6px;
-    font-size: 26px;
-    font-weight: bold;
-}
+    .banner h2 {
+        margin: 10px 0;
+    }
 
-/* Tagline */
-.banner p {
-    margin: 0;
-    font-size: 15px;
-    opacity: 0.9;
-}
-
-
-/* Booking Card */
+/* ===============================
+   BOOKING CARD
+   =============================== */
 .booking-card {
     max-width: 420px;
-    margin: 30px auto;
+    margin: 40px auto;
     background: #fffaf0;
     padding: 25px;
     border-radius: 14px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
 }
 
     .booking-card h2 {
         text-align: center;
-        margin-bottom: 20px;
     }
 
     .booking-card input,
@@ -60,51 +60,94 @@ body {
         border: 1px solid #ccc;
     }
 
-    .booking-card textarea {
-        resize: none;
-        height: 80px;
-    }
-
     .booking-card button {
         width: 100%;
         padding: 12px;
         background: #ffb703;
         border: none;
         border-radius: 8px;
-        font-size: 16px;
         font-weight: bold;
         cursor: pointer;
     }
 
-/* Footer Section (light yellow area) */
-.footer-section {
-    margin-top: 40px;
-    padding: 30px 15px;
-    background: #fff3c4;
+/* ===============================
+   SERVICES
+   =============================== */
+.services {
+    padding: 40px 20px;
     text-align: center;
 }
 
-.footer-content {
-    max-width: 600px;
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 900px;
     margin: auto;
+}
+
+.service-card {
+    background: #fffaf0;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,.1);
+    font-size: 28px;
+}
+
+/* ===============================
+   PRICING
+   =============================== */
+.pricing {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+    .pricing table {
+        max-width: 500px;
+        margin: auto;
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .pricing th {
+        background: #ffb703;
+    }
+
+    .pricing th,
+    .pricing td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+    }
+
+/* ===============================
+   MAP (FIXED OVERFLOW)
+   =============================== */
+.map-section {
+    padding: 40px 0; /* ⬅️ removed side padding */
+    text-align: center;
+    background: #fff7d6;
+}
+
+    .map-section iframe {
+        display: block;
+        width: 100%;
+        max-width: 800px;
+        height: 300px;
+        border: 0;
+        border-radius: 12px;
+        margin: 0 auto; /* ⬅️ center safely */
+    }
+
+/* ===============================
+   FOOTER
+   =============================== */
+.footer {
+    background: linear-gradient(to right, #ffb703, #ffd166);
     color: #3a2a00;
-    font-size: 14px;
-    line-height: 1.6;
+    text-align: center;
+    padding: 25px 15px;
+    font-weight: 500;
 }
-
-    .footer-content h3 {
-        margin-bottom: 10px;
-        font-size: 16px;
-        font-weight: bold;
-    }
-
-.footer-phone {
-    margin-top: 10px;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-    .footer-phone a {
-        color: #3a2a00;
-        text-decoration: none;
-    }
