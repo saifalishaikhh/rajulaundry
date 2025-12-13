@@ -1,3 +1,7 @@
+@{
+    Layout = null;
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +9,7 @@
     <title>Raju Laundry & Dry Cleaners</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link href="css/style.css" rel="stylesheet" />
-
+    <link href="~/Content/site.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -100,22 +103,38 @@
     <!-- WHATSAPP SCRIPT -->
     <script>
         function sendToWhatsApp() {
+
+            // ✅ Explicitly fetch elements
+            var nameValue = document.getElementById("name").value.trim();
+            var mobileValue = document.getElementById("mobile").value.trim();
+            var addressValue = document.getElementById("address").value.trim();
+            var clothesValue = document.getElementById("clothes").value.trim();
+
+            // Optional safety checks
+            if (nameValue.length < 2) {
+                alert("Please enter a valid name");
+                return;
+            }
+
+            if (mobileValue.length !== 10) {
+                alert("Please enter a valid 10-digit mobile number");
+                return;
+            }
+
             var msg =
                 "*New Laundry Booking*\n\n" +
-                "*👤 Name:* " + name.value + "\n" +
-                "*📞 Mobile:* " + mobile.value + "\n" +
-                "*📍 Address:* " + address.value + "\n" +
-                "*👕 Clothes:* " + clothes.value;
+                "*👤 Name:* " + nameValue + "\n" +
+                "*📞 Mobile:* " + mobileValue + "\n" +
+                "*📍 Address:* " + addressValue + "\n" +
+                "*👕 Clothes:* " + clothesValue;
 
             window.open(
-                "https://wa.me/918433519084?text=" + encodeURIComponent(msg),
+                "https://wa.me/918108344894?text=" + encodeURIComponent(msg),
                 "_blank"
             );
         }
     </script>
 
+
 </body>
 </html>
-
-
-
