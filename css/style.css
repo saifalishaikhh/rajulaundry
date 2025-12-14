@@ -1,43 +1,25 @@
-/* ===============================
-   GLOBAL RESET (CRITICAL FIX)
-   =============================== */
-*,
-*::before,
-*::after {
+/* RESET */
+* {
     box-sizing: border-box;
 }
 
 html, body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* FINAL SAFETY NET */
+    overflow-x: hidden;
     font-family: Arial, sans-serif;
     background: linear-gradient(to bottom, #fff7d6, #ffe28a);
 }
 
-/* ===============================
-   HEADER / BANNER
-   =============================== */
+/* HEADER */
 .banner {
     background: #ffb703;
     text-align: center;
     padding: 45px 20px;
     color: #3a2a00;
-    width: 100%;
 }
 
-    .banner h1 {
-        font-size: 34px;
-        margin: 0;
-    }
-
-    .banner h2 {
-        margin: 10px 0;
-    }
-
-/* ===============================
-   BOOKING CARD
-   =============================== */
+/* BOOKING */
 .booking-card {
     max-width: 420px;
     margin: 40px auto;
@@ -46,10 +28,6 @@ html, body {
     border-radius: 14px;
     box-shadow: 0 8px 20px rgba(0,0,0,.15);
 }
-
-    .booking-card h2 {
-        text-align: center;
-    }
 
     .booking-card input,
     .booking-card textarea {
@@ -67,92 +45,76 @@ html, body {
         border: none;
         border-radius: 8px;
         font-weight: bold;
-        cursor: pointer;
     }
 
-/* ===============================
-   SERVICES
-   =============================== */
+/* SERVICES */
 .services {
-    padding: 40px 20px;
+    padding: 50px 10px;
     text-align: center;
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 25px;
 }
 
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
     max-width: 900px;
     margin: auto;
 }
 
 .service-card {
     background: #fffaf0;
-    padding: 20px;
+    border-radius: 14px;
+    padding: 18px 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+
+.service-icon {
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+/* WORKING HOURS */
+.timing {
+    text-align: center;
+    padding: 40px 15px;
+}
+
+.timing-box {
+    display: inline-block;
+    background: #fffaf0;
+    padding: 20px 25px;
     border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,.1);
-    font-size: 28px;
+    box-shadow: 0 6px 15px rgba(0,0,0,.12);
 }
 
-/* ===============================
-   PRICING
-   =============================== */
-.pricing {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-    .pricing table {
-        max-width: 500px;
-        margin: auto;
-        width: 100%;
-        border-collapse: collapse;
-        background: #fff;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-
-    .pricing th {
-        background: #ffb703;
-    }
-
-    .pricing th,
-    .pricing td {
-        padding: 12px;
-        border-bottom: 1px solid #ddd;
-    }
-
-/* ===============================
-   MAP (FIXED OVERFLOW)
-   =============================== */
+/* MAP */
 .map-section {
-    padding: 40px 0; /* ⬅️ removed side padding */
     text-align: center;
-    background: #fff7d6;
+    padding: 40px 15px;
 }
 
     .map-section iframe {
-        display: block;
         width: 100%;
         max-width: 800px;
         height: 300px;
         border: 0;
         border-radius: 12px;
-        margin: 0 auto; /* ⬅️ center safely */
     }
 
-/* ===============================
-   FOOTER
-   =============================== */
+/* FOOTER */
 .footer {
     background: linear-gradient(to right, #ffb703, #ffd166);
-    color: #3a2a00;
     text-align: center;
     padding: 25px 15px;
-    font-weight: 500;
 }
-.footer-phone {
-    color: #3a2a00;
-    text-decoration: none;
-    font-weight: bold;
-}
+
+    .footer a {
+        color: #3a2a00;
+        font-weight: bold;
+        text-decoration: none;
+    }
