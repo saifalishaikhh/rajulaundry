@@ -1,51 +1,36 @@
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>Raju Laundry & Dry Cleaners</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-	<link href="css/style.css" rel="stylesheet" />
-
+    <link href="~/Content/site.css" rel="stylesheet" />
 </head>
 <body>
 
-    <!-- FULL WIDTH HEADER -->
+    <!-- HEADER -->
     <header class="banner">
         <h1>Raju Laundry & Dry Cleaners</h1>
         <h2>Free Pickup & Delivery 🚚</h2>
         <p>Professional Laundry Service at Your Doorstep</p>
     </header>
 
-    <!-- BOOKING CARD -->
+    <!-- BOOKING -->
     <section class="booking-card">
         <h2>Book Your Pickup</h2>
 
         <form onsubmit="sendToWhatsApp(); return false;">
-
-            <input type="text" id="name"
-                   placeholder="Your Name"
-                   maxlength="20"
-                   required
+            <input type="text" id="name" placeholder="Your Name"
+                   maxlength="20" required
                    oninput="this.value=this.value.replace(/[^a-zA-Z ]/g,'')" />
 
-            <input type="tel" id="mobile"
-                   placeholder="Mobile Number"
-                   maxlength="10"
-                   required
-                   inputmode="numeric"
+            <input type="tel" id="mobile" placeholder="Mobile Number"
+                   maxlength="10" required inputmode="numeric"
                    oninput="this.value=this.value.replace(/[^0-9]/g,'')" />
 
-            <textarea id="address"
-                      placeholder="Pickup Address"
-                      required></textarea>
+            <textarea id="address" placeholder="Pickup Address" required></textarea>
 
-            <input type="number" id="clothes"
-                   placeholder="Number of Clothes"
-                   min="1"
-                   max="999"
-                   required />
+            <input type="number" id="clothes" placeholder="Number of Clothes"
+                   min="1" max="999" required />
 
             <button type="submit">Book Pickup</button>
         </form>
@@ -53,35 +38,50 @@
 
     <!-- SERVICES -->
     <section class="services">
-        <h2>Our Services</h2>
+        <h2 class="section-title">Our Services</h2>
 
         <div class="service-grid">
-            <div class="service-card">🧺<h3>Wash & Fold</h3><p>Daily wear cleaned & folded</p></div>
-            <div class="service-card">👔<h3>Dry Cleaning</h3><p>Premium fabric care</p></div>
-            <div class="service-card">🧼<h3>Ironing</h3><p>Steam press finish</p></div>
+            <div class="service-card">
+                <div class="service-icon">🧺</div>
+                <h3>Wash & Fold</h3>
+                <p>Daily wear cleaned & folded</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">👔</div>
+                <h3>Dry Cleaning</h3>
+                <p>Premium fabric care</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🧼</div>
+                <h3>Ironing</h3>
+                <p>Steam press finish</p>
+            </div>
         </div>
     </section>
 
-    <!-- PRICE LIST -->
-    <section class="pricing">
-        <h2>Price List</h2>
+    <!-- WORKING HOURS -->
+    <!-- WORKING HOURS -->
+    <section class="timing">
+        <h2>Working Hours</h2>
 
-        <table>
-            <tr><th>Item</th><th>Price (₹)</th></tr>
-            <tr><td>Shirt / T-Shirt</td><td>10</td></tr>
-            <tr><td>Pant / Jeans</td><td>15</td></tr>
-            <tr><td>Bedsheet</td><td>40</td></tr>
-            <tr><td>Blanket</td><td>80</td></tr>
-        </table>
+        <div class="timing-box">
+            <p>🌅 <strong>Morning:</strong> 8:00 AM – 1:00 PM</p>
+            <p>🌆 <strong>Evening:</strong> 4:00 PM – 10:00 PM</p>
+            <p>📅 <strong>Open:</strong> Monday – Sunday</p>
+        </div>
     </section>
+
 
     <!-- MAP -->
     <section class="map-section">
         <h2>Find Us</h2>
 
-        <iframe src="https://www.google.com/maps?q=19.2179,72.8287&output=embed"
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120595.31846642095!2d72.75525714932262!3d19.16881692232682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b73b356ae2c3%3A0x5c120fca02779f46!2sRaju%20Dry%20cleaning%20Service!5e0!3m2!1sen!2sin!4v1765715121872!5m2!1sen!2sin"
                 loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen>
         </iframe>
     </section>
 
@@ -93,48 +93,25 @@
             D-45 Plot No 114 Maheshwari CHS,<br>
             Charkop Sector 1, Near Asha Hotel,<br>
             Kandivali West, Mumbai – 400067<br>
-            📞 <a href="tel:7718924227" class="footer-phone">7718924227</a>
+            📞 <a href="tel:7718924227">7718924227</a>
         </p>
     </footer>
 
-    <!-- WHATSAPP SCRIPT -->
     <script>
         function sendToWhatsApp() {
-
-            // ✅ Explicitly fetch elements
-            var nameValue = document.getElementById("name").value.trim();
-            var mobileValue = document.getElementById("mobile").value.trim();
-            var addressValue = document.getElementById("address").value.trim();
-            var clothesValue = document.getElementById("clothes").value.trim();
-
-            // Optional safety checks
-            if (nameValue.length < 2) {
-                alert("Please enter a valid name");
-                return;
-            }
-
-            if (mobileValue.length !== 10) {
-                alert("Please enter a valid 10-digit mobile number");
-                return;
-            }
-
             var msg =
                 "*New Laundry Booking*\n\n" +
-                "*👤 Name:* " + nameValue + "\n" +
-                "*📞 Mobile:* " + mobileValue + "\n" +
-                "*📍 Address:* " + addressValue + "\n" +
-                "*👕 Clothes:* " + clothesValue;
+                "*👤 Name:* " + name.value + "\n" +
+                "*📞 Mobile:* " + mobile.value + "\n" +
+                "*📍 Address:* " + address.value + "\n" +
+                "*👕 Clothes:* " + clothes.value;
 
             window.open(
-                "https://wa.me/918433519084?text=" + encodeURIComponent(msg),
+                "https://wa.me/918108344894?text=" + encodeURIComponent(msg),
                 "_blank"
             );
         }
     </script>
 
-
 </body>
 </html>
-
-
-
