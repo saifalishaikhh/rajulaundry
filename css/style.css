@@ -151,3 +151,8 @@ html, body {
     padding: 25px 15px;
     font-weight: 500;
 }
+.footer-phone {
+    color: #3a2a00;
+    text-decoration: none;
+    font-weight: bold;
+}
