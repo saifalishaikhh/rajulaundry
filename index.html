@@ -101,19 +101,37 @@
 
     <script>
         function sendToWhatsApp() {
-            var msg =
-                "*New Laundry Booking*\n\n" +
-                "*👤 Name:* " + name.value + "\n" +
-                "*📞 Mobile:* " + mobile.value + "\n" +
-                "*📍 Address:* " + address.value + "\n" +
-                "*👕 Clothes:* " + clothes.value;
-
+        
+            const nameValue = document.getElementById("name").value.trim();
+            const mobileValue = document.getElementById("mobile").value.trim();
+            const addressValue = document.getElementById("address").value.trim();
+            const clothesValue = document.getElementById("clothes").value.trim();
+        
+            // Extra safety (recommended)
+            if (nameValue.length < 2) {
+                alert("Please enter a valid name");
+                return;
+            }
+        
+            if (mobileValue.length !== 10) {
+                alert("Please enter a valid 10-digit mobile number");
+                return;
+            }
+        
+            const msg =
+                "New Laundry Booking\n\n" +
+                "Name: " + nameValue + "\n" +
+                "Mobile: " + mobileValue + "\n" +
+                "Address: " + addressValue + "\n" +
+                "Clothes: " + clothesValue;
+        
             window.open(
-                "https://wa.me/918108344894?text=" + encodeURIComponent(msg),
+                "https://wa.me/918433519084?text=" + encodeURIComponent(msg),
                 "_blank"
             );
         }
-    </script>
+</script>
+
    <script>
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/rajulaundry/service-worker.js")
@@ -123,5 +141,6 @@
 
 </body>
 </html>
+
 
 
