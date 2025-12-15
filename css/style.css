@@ -77,7 +77,51 @@ html, body {
     font-size: 34px;
     margin-bottom: 8px;
 }
+/* ===============================
+   PRICE LIST
+   =============================== */
+.pricing {
+    padding: 40px 15px;
+    text-align: center;
+}
 
+.pricing h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #3a2a00;
+}
+
+.pricing-table-wrapper {
+    overflow-x: auto; /* mobile safety */
+}
+
+.pricing-table {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #fffaf0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.pricing-table th {
+    background: #ffb703;
+    color: #3a2a00;
+    padding: 12px;
+    font-weight: bold;
+}
+
+.pricing-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    color: #3a2a00;
+}
+
+.pricing-table tr:last-child td {
+    border-bottom: none;
+}
 /* WORKING HOURS */
 .timing {
     text-align: center;
@@ -118,3 +162,4 @@ html, body {
         font-weight: bold;
         text-decoration: none;
     }
+
